@@ -11,12 +11,6 @@ client.on('message', message => {
   	}
 });
 
-client.on("ready", () => { // كود رينبو
-  function lol() {
-    client.guilds.get('517821029062803466').roles.find("name", "Rnn").setColor("RANDOM");
-  };
-  setInterval(lol, 1000);
-});
 
 client.on('guildMemberAdd', (member) => {
 member.addRole(member.guild.roles.find('name', 'Members'));
