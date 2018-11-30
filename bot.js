@@ -512,23 +512,4 @@ Sender <@${message.author.id}>                                                  
   }, 1000);
 });
 
-client.on('guildMemberAdd', msg => { 
-    var embed = new Discord.RichEmbed()
-    .setAuthor(msg.user.username, msg.user.avatarURL)
-    .setThumbnail(msg.user.avatarURL)
-    .setImage('https://www.mexatk.com/wp-content/uploads/2015/11/صور-ترحيب-جديدة-4.gif')     
-    .setTitle('عضو جديد')
-    .setDescription('Welcome To server')
-    .addField('**ID Member:',"" +  msg.user.id, true)
-    .addField('**Tag Member**', msg.user.discriminator, true)
-    .addField('**Member Created At', msg.user.createdAt, true)
-    .addField(' 👤   انت عضو رقم',`**[ ${msg.guild.memberCount} ]**`,true)
-    .setColor('GREEN')
-    .setFooter(msg.guild.name, msg.guild.iconURL, true)
-    var channel = msg.guild.channels.find('name', 'welcome')         
-    if (!channel) return;
-    channel.send({embed : embed});
-    });
-
-
 client.login(process.env.BOT_TOKEN);
