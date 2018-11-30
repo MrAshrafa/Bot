@@ -119,56 +119,12 @@ client.on('message', msg => {
 });
 
 client.on('message', message => {
-var prefix = "$" // البريفكس
-     if (message.author.bot) return;
-if (message.content.startsWith(prefix + "uptime")) { // الامر
-    let uptime = client.uptime;
- 
-    let days = 0;
-    let hours = 0;
-    let minutes = 0;
-    let seconds = 0;
-    let notCompleted = true;
- 
-    while (notCompleted) {
- 
-        if (uptime >= 8.64e+7) {
- 
-            days++;
-            uptime -= 8.64e+7;
- 
-        } else if (uptime >= 3.6e+6) {
- 
-            hours++;
-            uptime -= 3.6e+6;
- 
-        } else if (uptime >= 60000) {
- 
-            minutes++;
-            uptime -= 60000;
- 
-        } else if (uptime >= 1000) {
-            seconds++;
-            uptime -= 1000;
- 
-        }
- 
-        if (uptime < 1000)  notCompleted = false;
- 
-    }
- 
-    message.channel.send("" +${days} days, ${hours} hrs, ${minutes} , ${seconds} sec+ "");
- 
-}
-});
-
-client.on('message', message => {
               if(!message.channel.guild) return;
     if(message.content.startsWith('=bc')) {
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );  
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-    let copy = "DgPro-BC";
+    let copy = "Fire | Bot";
     let request = `Requested By ${message.author.username}`;  
     if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
     msg.react('✅')
@@ -271,20 +227,6 @@ client.on("message", message => {
   
   });
 
-client.on('message', function(message) {
-    if(message.content.startsWith(prefix + 'roll')) {
-        let args = message.content.split(" ").slice(1);
-        if (!args[0]) {
-            message.channel.send('**Put a number**'); 
-            return;
-            }
-    message.channel.send(Math.floor(Math.random() * args.join(' ')));
-            if (!args[0]) {
-          message.edit('1')
-          return;
-        }
-    }
-});
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
