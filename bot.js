@@ -521,7 +521,7 @@ client.on('message', async message => {
     var fa2dh = '';
     var filter = m => m.author.id === message.author.id;
     var subChannel = message.guild.channels.find(c => c.name === 'قبول رفض');
-    if(command == prefix + 'join-seller') {
+    if(command == prefix + 'تقديم+بائع') {
         if(message.author.bot) return;
         if(message.channel.type === 'dm') return;
  
